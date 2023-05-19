@@ -1,6 +1,6 @@
-podman build -t xcigta/mariadb .
+#!/bin/bash
 
-podman run -p 3306:3306 -v /home/xcigta/dev/workdpress/data:/var/lib/mysql --name mariadb xcigta/mariadb:latest
-
-podman exec -i -t mariadb  /bin/sh
+docker build -t wp wordpress
+docker build -t db mariadb
+docker compose up -d
 
